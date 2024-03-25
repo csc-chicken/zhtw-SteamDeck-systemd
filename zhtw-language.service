@@ -1,0 +1,10 @@
+ 
+[Unit]
+Description=SteamDeck gamemode zhtw
+
+[Service]
+ExecStart=/usr/bin/bash -c 'steamos-readonly disable;if ! cat /etc/environment|grep -q LANGUAGE; then echo "NO VARIABLE";echo "LANGUAGE=zh_TW" >> /etc/environment; else echo "yes";fi;steamos-readonly enable;'
+
+
+[Install]
+WantedBy=multi-user.target
